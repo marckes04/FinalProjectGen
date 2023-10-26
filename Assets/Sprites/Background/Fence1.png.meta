@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e438fa7cf6990c544b0a141e87095e33
+guid: f122c25db0b937445b974267519a14ed
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,22 +149,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House1
+      name: Fence1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 0
-        width: 1955
-        height: 2297
+        x: 408
+        y: 13
+        width: 1190
+        height: 680
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddace6536db368d46bef77759ce96c22
-      internalID: -875491624
+      spriteID: cae0eed5ee1fce44cb3ee0e2c9cc09f1
+      internalID: -2055096574
       vertices: []
       indices: 
       edges: []
@@ -172,7 +172,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 64fe5c7e27fcfd143a97e63c547e195e
+    spriteID: ea943a08affd62a41b3ea7db651200d2
     internalID: 0
     vertices: []
     indices: 
@@ -180,7 +180,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      House1: -875491624
+      Fence1: -2055096574
+      Fence1_1: 1616868480
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -236,9 +236,9 @@ TextureImporter:
       name: Walk5
       rect:
         serializedVersion: 2
-        x: 4315
+        x: 4274
         y: 115
-        width: 370
+        width: 437
         height: 785
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -257,9 +257,9 @@ TextureImporter:
       name: Walk6
       rect:
         serializedVersion: 2
-        x: 5314
+        x: 5270
         y: 115
-        width: 370
+        width: 457
         height: 785
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

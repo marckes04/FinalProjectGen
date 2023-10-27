@@ -8784,7 +8784,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730443910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8795,7 +8795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -185}
+  m_AnchoredPosition: {x: 224, y: -224}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730443912
@@ -11411,7 +11411,7 @@ PrefabInstance:
     - target: {fileID: 946135171923675312, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
       propertyPath: fireBullet
       value: 
-      objectReference: {fileID: 3799824821735754554, guid: 2bdc4c94fef97d745971ce31c4563ca0, type: 3}
+      objectReference: {fileID: 3180677428583762706, guid: 1b71cf7c2ee310c4686f003435ac5a80, type: 3}
     - target: {fileID: 946135171923675312, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
       propertyPath: maxStamina
       value: 10

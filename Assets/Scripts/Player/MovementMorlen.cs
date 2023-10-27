@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class MovementMorlen : MonoBehaviour
 {
-         public float speed = 15;
+    public static MovementMorlen instance;
+
+    public float speed = 15;
 
         Rigidbody rbody;
-         Animator anim;
+        Animator anim;
+
+    public static bool right = true;
+    
+
+
 
         // Use this for initialization
         void Start()
@@ -44,16 +51,18 @@ public class MovementMorlen : MonoBehaviour
         if(horizontalInput > 0)
         {
             changeDirection(1);
+            right = true;
         }
 
         else if(horizontalInput < 0)
         {
             changeDirection(-1);
+            right = false;
         }
 
         }
 
-    void changeDirection(int direction)
+     public  void changeDirection(int direction)
     {
         Vector3 tempScale = transform.localScale;
         tempScale.x = direction;

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class FireBullet : MonoBehaviour
 {
-
     private float speed = 10f;
     private Animator anim;
 
@@ -57,7 +56,7 @@ public class FireBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D target)
     {
-        
+
     }
 
 }

@@ -1117,7 +1117,7 @@ Transform:
   m_GameObject: {fileID: 36553786}
   serializedVersion: 2
   m_LocalRotation: {x: 0.226748, y: 0, z: 0, w: 0.9739535}
-  m_LocalPosition: {x: 2.2, y: 16.589998, z: -398.5}
+  m_LocalPosition: {x: 3.678, y: 16.589998, z: -371.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13052,11 +13052,11 @@ Transform:
   m_GameObject: {fileID: 596721671}
   serializedVersion: 2
   m_LocalRotation: {x: 0.41874745, y: -0, z: -0, w: 0.90810275}
-  m_LocalPosition: {x: 0.31999993, y: 16.95, z: -11.200012}
+  m_LocalPosition: {x: 3.998, y: 27.14, z: -369.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1187471396}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 49.511, y: 0, z: 0}
 --- !u!108 &596721673
 Light:
@@ -13070,9 +13070,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.47
-  m_Range: 50.85
-  m_SpotAngle: 51
+  m_Intensity: 4.06
+  m_Range: 47.4
+  m_SpotAngle: 80.26
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -25044,11 +25044,10 @@ Transform:
   m_GameObject: {fileID: 1187471395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2, y: 10.19, z: -385.5}
+  m_LocalPosition: {x: 3.678, y: 10.19, z: -358.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 596721672}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1187471397
@@ -29949,7 +29948,7 @@ Transform:
   m_GameObject: {fileID: 1387270610}
   serializedVersion: 2
   m_LocalRotation: {x: 0.226748, y: 0, z: 0, w: 0.9739535}
-  m_LocalPosition: {x: 2.2, y: 16.589998, z: -398.5}
+  m_LocalPosition: {x: 3.678, y: 16.589998, z: -371.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37002,6 +37001,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4014866402430322876, guid: 782b5e49a4001a140ad5de6713008b82, type: 3}
   m_PrefabInstance: {fileID: 1004610567}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1723577618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723577619}
+  m_Layer: 0
+  m_Name: Morlen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1723577619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723577618}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.678, y: 10.19, z: -358.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1725525105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4991803671981527186, guid: 2078eedac7367d549ba49dd6e9edec18, type: 3}
@@ -45709,3 +45739,5 @@ SceneRoots:
   - {fileID: 250128267}
   - {fileID: 1087106478}
   - {fileID: 1757732407}
+  - {fileID: 596721672}
+  - {fileID: 1723577619}

@@ -4,20 +4,62 @@ using UnityEngine;
 
 public class MovementMorlen : MonoBehaviour
 {
-    public float speed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+         public float speed = 15;
 
-    // Update is called once per frame
-    void Update()
-    {
+        Rigidbody rbody;
+         Animator anim;
+
+        // Use this for initialization
+        void Start()
+        {
+
+            rbody = GetComponent<Rigidbody>();
+            anim = GetComponent<Animator>();
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput ) * speed * Time.deltaTime;
+        Vector2 movement_vector = new Vector2(horizontalInput, verticalInput);
+
+            if (movement_vector != Vector2.zero)
+            {
+                anim.SetBool("Walk", true);
+                anim.SetFloat("Input_x", movement_vector.x);
+                anim.SetFloat("Input_y", movement_vector.y);
+            }
+            else
+            {
+                anim.SetBool("Walk", false);
+            }
+        // rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime);
+
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * speed * Time.deltaTime;
         transform.Translate(movement);
+
+
+        if(horizontalInput > 0)
+        {
+            changeDirection(1);
+        }
+
+        else if(horizontalInput < 0)
+        {
+            changeDirection(-1);
+        }
+
+        }
+
+    void changeDirection(int direction)
+    {
+        Vector3 tempScale = transform.localScale;
+        tempScale.x = direction;
+        transform.localScale = tempScale;
     }
-}
+
+
+    }
+

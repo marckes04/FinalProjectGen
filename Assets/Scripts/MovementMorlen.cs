@@ -18,7 +18,7 @@ public class MovementMorlen : MonoBehaviour
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
@@ -39,7 +39,26 @@ public class MovementMorlen : MonoBehaviour
 
         Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * speed * Time.deltaTime;
         transform.Translate(movement);
+
+
+        if(horizontalInput > 0)
+        {
+            changeDirection(1);
         }
+
+        else if(horizontalInput < 0)
+        {
+            changeDirection(-1);
+        }
+
+        }
+
+    void changeDirection(int direction)
+    {
+        Vector3 tempScale = transform.localScale;
+        tempScale.x = direction;
+        transform.localScale = tempScale;
+    }
 
 
     }

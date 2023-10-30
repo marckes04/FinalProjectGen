@@ -12,6 +12,7 @@ public class ShootBar : MonoBehaviour
     public static ShootBar instance;
 
     private WaitForSeconds regenTick = new WaitForSeconds(.1f);
+    private Coroutine regen;
 
 
 
@@ -36,7 +37,10 @@ public class ShootBar : MonoBehaviour
             shootBar.value = currentShoot;
 
 
-            StartCoroutine(RegenPower());
+            if(regen != null) 
+                StopCoroutine(regen);
+
+          regen =  StartCoroutine(RegenPower());
         }
 
         else
@@ -56,6 +60,8 @@ public class ShootBar : MonoBehaviour
             shootBar.value = currentShoot;
             yield return regenTick;
         }
+
+        regen = null;
     }
 
 }

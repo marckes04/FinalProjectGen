@@ -24,26 +24,26 @@ public class PlayerShooting : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) //-change
-        {
-            GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
-            bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
-            animator.SetBool("Melee", true); //-new
+        //if (Input.GetKeyDown(KeyCode.Mouse0)) 
+        //{
+        //    GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
+        //    bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
+        //    animator.SetBool("Melee", true); 
 
-            if (MovementMorlen.right)
-            {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = false;
-                animator.GetComponent<SpriteRenderer>().flipX = false; //-new
-            }
-            else if (!MovementMorlen.right)
-            {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = true;
-                animator.GetComponent<SpriteRenderer>().flipX = true; //-new
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
-        {
-            animator.SetBool("Melee", false);
+        //    if (MovementMorlen.right)
+        //    {
+        //        fireBullet.GetComponent<SpriteRenderer>().flipX = false;
+        //        animator.GetComponent<SpriteRenderer>().flipX = false; 
+        //    }
+        //    else if (!MovementMorlen.right)
+        //    {
+        //        fireBullet.GetComponent<SpriteRenderer>().flipX = true;
+        //        animator.GetComponent<SpriteRenderer>().flipX = true; 
+        //    }
+        //}
+        //if (Input.GetKeyUp(KeyCode.Mouse0))
+        //{
+        //    animator.SetBool("Melee", false);
             if (Input.GetKeyDown(KeyCode.J))
             {
                 GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
@@ -60,8 +60,6 @@ public class PlayerShooting : MonoBehaviour
 
 
             }
-
-
-        }
+        //}
     }
 }

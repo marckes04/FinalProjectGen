@@ -11,7 +11,7 @@ public class ShootBar : MonoBehaviour
 
     public static ShootBar instance;
 
-    private WaitForSeconds regenTick = new WaitForSeconds(.1f);
+ 
     private Coroutine regen;
 
 
@@ -40,7 +40,7 @@ public class ShootBar : MonoBehaviour
             if(regen != null) 
                 StopCoroutine(regen);
 
-          regen =  StartCoroutine(RegenPower());
+          
         }
 
         else
@@ -49,19 +49,5 @@ public class ShootBar : MonoBehaviour
         }
     }
 
-    private IEnumerator RegenPower()
-    {
-        yield return new WaitForSeconds(2);
-
-        while (currentShoot < maxShoot)
-        {
-           // PlayerShooting.canShoot = true;
-            currentShoot += maxShoot / 100;
-            shootBar.value = currentShoot;
-            yield return regenTick;
-        }
-
-        regen = null;
-    }
 
 }

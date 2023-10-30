@@ -1116,11 +1116,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36553786}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24987313, y: 0, z: 0, w: 0.9682786}
-  m_LocalPosition: {x: 0, y: 19.589998, z: -377.85}
+  m_LocalRotation: {x: 0.11709204, y: 0, z: 0, w: 0.9931211}
+  m_LocalPosition: {x: 0, y: 16.789999, z: -388.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 596721672}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &39508907
@@ -13318,13 +13319,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596721671}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20193006, y: -0, z: -0, w: 0.9794}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.19936788, y: 0, z: 0, w: 0.97992474}
+  m_LocalPosition: {x: 0.3, y: 10.2, z: 5.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 36553790}
+  m_LocalEulerAnglesHint: {x: 23, y: 0, z: 0}
 --- !u!108 &596721673
 Light:
   m_ObjectHideFlags: 0
@@ -13337,13 +13338,13 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 5
+  m_Range: 47.4
+  m_SpotAngle: 80.2
+  m_InnerSpotAngle: 4
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -30414,8 +30415,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387270610}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24987313, y: 0, z: 0, w: 0.9682786}
-  m_LocalPosition: {x: 0, y: 19.589998, z: -377.85}
+  m_LocalRotation: {x: 0.11709204, y: 0, z: 0, w: 0.9931211}
+  m_LocalPosition: {x: 0, y: 16.789999, z: -388.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39869,7 +39870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0, y: 9, z: -15}
+  ShoulderOffset: {x: 0, y: 6.2, z: -25.6}
   VerticalArmLength: 0.4
   CameraSide: 1
   CameraDistance: 2
@@ -46476,4 +46477,3 @@ SceneRoots:
   - {fileID: 1087106478}
   - {fileID: 1757732407}
   - {fileID: 457187922}
-  - {fileID: 596721672}

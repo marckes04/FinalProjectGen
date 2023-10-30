@@ -5,6 +5,10 @@ using UnityEngine;
 public class MovementMorlen : MonoBehaviour
 {
     public static MovementMorlen instance;
+<<<<<<< HEAD:Assets/Scripts/MovementMorlen.cs
+
+    public float speed = 15;
+=======
 
     public float speed = 15;
 
@@ -15,54 +19,67 @@ public class MovementMorlen : MonoBehaviour
     
 
 
+>>>>>>> Mario:Assets/Scripts/Player/MovementMorlen.cs
 
-        // Use this for initialization
-        void Start()
-        {
+    Rigidbody rbody;
+    Animator anim;
 
-            rbody = GetComponent<Rigidbody>();
-            anim = GetComponent<Animator>();
-        }
+    public static bool right = true;
 
-        // Update is called once per frame
-        void FixedUpdate()
-        {
+
+
+
+    // Use this for initialization
+    void Start()
+    {
+
+        rbody = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector2 movement_vector = new Vector2(horizontalInput, verticalInput);
 
-            if (movement_vector != Vector2.zero)
-            {
-                anim.SetBool("Walk", true);
-                anim.SetFloat("Input_x", movement_vector.x);
-                anim.SetFloat("Input_y", movement_vector.y);
-            }
-            else
-            {
-                anim.SetBool("Walk", false);
-            }
+        if (movement_vector != Vector2.zero)
+        {
+            anim.SetBool("Walk", true);
+            anim.SetFloat("Input_x", movement_vector.x);
+            anim.SetFloat("Input_y", movement_vector.y);
+        }
+        else
+        {
+            anim.SetBool("Walk", false);
+        }
         // rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime);
 
         Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * speed * Time.deltaTime;
         transform.Translate(movement);
 
 
-        if(horizontalInput > 0)
+        if (horizontalInput > 0)
         {
             changeDirection(1);
             right = true;
         }
 
-        else if(horizontalInput < 0)
+        else if (horizontalInput < 0)
         {
             changeDirection(-1);
             right = false;
         }
 
-        }
+    }
 
+<<<<<<< HEAD:Assets/Scripts/MovementMorlen.cs
+    public void changeDirection(int direction)
+=======
      public  void changeDirection(int direction)
+>>>>>>> Mario:Assets/Scripts/Player/MovementMorlen.cs
     {
         Vector3 tempScale = transform.localScale;
         tempScale.x = direction;
@@ -70,5 +87,4 @@ public class MovementMorlen : MonoBehaviour
     }
 
 
-    }
-
+}

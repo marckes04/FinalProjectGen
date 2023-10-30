@@ -23,7 +23,7 @@ public class MeleeAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
 
-            if (Random.Range(0, 2) > 0)
+            if (Random.Range(1, 2) > 0)
             {
                 playerAnimation.AttackMelee();
             }

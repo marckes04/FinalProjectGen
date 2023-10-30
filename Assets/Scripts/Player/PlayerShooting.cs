@@ -6,8 +6,9 @@ public class PlayerShooting : MonoBehaviour
 {
     public GameObject fireBullet;
 
-    private Animator animator; 
+    private Animator animator;
 
+    public static bool canShoot = true;
 
     private void Start()
     {
@@ -44,8 +45,12 @@ public class PlayerShooting : MonoBehaviour
         //if (Input.GetKeyUp(KeyCode.Mouse0))
         //{
         //    animator.SetBool("Melee", false);
+
+        if (canShoot)
+        {
             if (Input.GetKeyDown(KeyCode.J))
             {
+
                 GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
                 bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
 
@@ -58,8 +63,12 @@ public class PlayerShooting : MonoBehaviour
                     fireBullet.GetComponent<SpriteRenderer>().flipX = false;
                 }
 
+                ShootBar.instance.UseShooting(15);
 
             }
-        //}
+       
+
+        }
+          
     }
 }

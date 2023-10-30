@@ -56,6 +56,10 @@ public class FireBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D target)
     {
+        if(target.tag == "House")
+        {
+            Destroy(gameObject);
+        }
 
     }
 

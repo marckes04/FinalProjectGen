@@ -1088,11 +1088,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60.000004
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1116,19 +1116,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36553786}
   serializedVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/LevelSnowdenChanged.unity
   m_LocalRotation: {x: 0.24987313, y: 0, z: 0, w: 0.9682786}
-  m_LocalPosition: {x: 0, y: 19.589998, z: -388.2}
-========
-  m_LocalRotation: {x: 0.226748, y: 0, z: 0, w: 0.9739535}
-  m_LocalPosition: {x: 0, y: 16.589998, z: -373.85}
->>>>>>>> Mario:Assets/Scenes/Main.unity
+  m_LocalPosition: {x: 0, y: 19.589998, z: -377.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 596721672}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &39508907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13325,16 +13319,12 @@ Transform:
   m_GameObject: {fileID: 596721671}
   serializedVersion: 2
   m_LocalRotation: {x: 0.20193006, y: -0, z: -0, w: 0.9794}
-<<<<<<<< HEAD:Assets/Scenes/LevelSnowdenChanged.unity
-  m_LocalPosition: {x: 0.31999993, y: 10.260178, z: -3.0448704}
-========
-  m_LocalPosition: {x: 0.9, y: 3.8, z: 1.8}
->>>>>>>> Mario:Assets/Scenes/Main.unity
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 36553790}
-  m_LocalEulerAnglesHint: {x: 49.511, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &596721673
 Light:
   m_ObjectHideFlags: 0
@@ -13347,19 +13337,13 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<<< HEAD:Assets/Scenes/LevelSnowdenChanged.unity
-  m_Intensity: 6
-  m_Range: 47.4
-  m_SpotAngle: 74
-========
-  m_Intensity: 3.19
-  m_Range: 44.2
-  m_SpotAngle: 80.26
->>>>>>>> Mario:Assets/Scenes/Main.unity
-  m_InnerSpotAngle: 1
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -30401,18 +30385,13 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-<<<<<<<< HEAD:Assets/Scenes/LevelSnowdenChanged.unity
-  m_LookAt: {fileID: 1435066746}
-  m_Follow: {fileID: 1435066746}
-========
   m_LookAt: {fileID: 822611157}
   m_Follow: {fileID: 822611157}
->>>>>>>> Mario:Assets/Scenes/Main.unity
   m_Lens:
-    FieldOfView: 60.000004
-    OrthographicSize: 5
-    NearClipPlane: 0.3
-    FarClipPlane: 1000
+    FieldOfView: 40
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -30435,19 +30414,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387270610}
   serializedVersion: 2
-<<<<<<<< HEAD:Assets/Scenes/LevelSnowdenChanged.unity
   m_LocalRotation: {x: 0.24987313, y: 0, z: 0, w: 0.9682786}
-  m_LocalPosition: {x: 0, y: 19.589998, z: -388.2}
-========
-  m_LocalRotation: {x: 0.226748, y: 0, z: 0, w: 0.9739535}
-  m_LocalPosition: {x: 0, y: 16.589998, z: -373.85}
->>>>>>>> Mario:Assets/Scenes/Main.unity
+  m_LocalPosition: {x: 0, y: 19.589998, z: -377.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1827397441}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1393995993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31517,11 +31491,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4014866402430322876, guid: 782b5e49a4001a140ad5de6713008b82, type: 3}
   m_PrefabInstance: {fileID: 1431925067}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1435066746 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-  m_PrefabInstance: {fileID: 2093610049}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1437229212 stripped
 Transform:
@@ -44791,99 +44760,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4014866402430322876, guid: 782b5e49a4001a140ad5de6713008b82, type: 3}
   m_PrefabInstance: {fileID: 2093266181}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &2093610049
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 946135171923675312, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: fireBullet
-      value: 
-      objectReference: {fileID: 4225155239953716178, guid: 62a37fa93b2894d4fb6113db09350257, type: 3}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -371.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3518173181256341382, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459711208168038426, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_Color.b
-      value: 0.6415094
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_Color.g
-      value: 0.6415094
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_Color.r
-      value: 0.6415094
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_DrawMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_CastShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6517779001967024604, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e0ea3a2c9828a334ea788e3c4250042a, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7a2cccbdf90c44d4e8c12ee7da4e1330, type: 3}
 --- !u!1001 &2096685398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46599,9 +46475,5 @@ SceneRoots:
   - {fileID: 250128267}
   - {fileID: 1087106478}
   - {fileID: 1757732407}
-<<<<<<<< HEAD:Assets/Scenes/LevelSnowdenChanged.unity
-  - {fileID: 2093610049}
-========
-  - {fileID: 1723577619}
   - {fileID: 457187922}
->>>>>>>> Mario:Assets/Scenes/Main.unity
+  - {fileID: 596721672}

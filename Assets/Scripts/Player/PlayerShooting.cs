@@ -5,19 +5,14 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject fireBullet;
-<<<<<<< HEAD:Assets/Scripts/PlayerShooting.cs
-    private Animator animator; //-new
-=======
->>>>>>> Mario:Assets/Scripts/Player/PlayerShooting.cs
+
+    private Animator animator; 
 
 
     private void Start()
     {
-<<<<<<< HEAD:Assets/Scripts/PlayerShooting.cs
-        animator = GetComponent<Animator>(); //-new
-=======
-     
->>>>>>> Mario:Assets/Scripts/Player/PlayerShooting.cs
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -29,8 +24,6 @@ public class PlayerShooting : MonoBehaviour
     {
 
 
-
-<<<<<<< HEAD:Assets/Scripts/PlayerShooting.cs
         if (Input.GetKeyDown(KeyCode.Mouse0)) //-change
         {
             GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
@@ -48,29 +41,27 @@ public class PlayerShooting : MonoBehaviour
                 animator.GetComponent<SpriteRenderer>().flipX = true; //-new
             }
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0)) //-new
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            animator.SetBool("Melee", false); //-new
-        }
-        
-=======
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
-            bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
-
-            if( MovementMorlen.right)
+            animator.SetBool("Melee", false);
+            if (Input.GetKeyDown(KeyCode.J))
             {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (!MovementMorlen.right)
-            {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = false;
+                GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
+                bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
+
+                if (MovementMorlen.right)
+                {
+                    fireBullet.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else if (!MovementMorlen.right)
+                {
+                    fireBullet.GetComponent<SpriteRenderer>().flipX = false;
+                }
+
+
             }
 
 
         }
->>>>>>> Mario:Assets/Scripts/Player/PlayerShooting.cs
-
     }
 }

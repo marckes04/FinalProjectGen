@@ -56,13 +56,12 @@ public class FireBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D target)
     {
-<<<<<<< HEAD:Assets/Scripts/FireBullet.cs
-=======
+
         if(target.tag == "House")
         {
             Destroy(gameObject);
         }
->>>>>>> Mario:Assets/Scripts/Player/FireBullet.cs
+
 
     }
 

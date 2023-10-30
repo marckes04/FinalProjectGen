@@ -47,8 +47,8 @@ SpriteRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459711208168038426}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e0ea3a2c9828a334ea788e3c4250042a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxZ: 500
   minZ: -388
+  minX: -176.6
+  maxX: 168.8
   player: {fileID: 4459711208168038426}
 --- !u!114 &946135171923675312
 MonoBehaviour:
@@ -158,11 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8103a57847743014a92d1a2225d997a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnPoint: {fileID: 5661339491144813916}
-  bulletPrefab: {fileID: 3799824821735754554, guid: 2bdc4c94fef97d745971ce31c4563ca0, type: 3}
-  bulletSpeed: 20
-  bulletAngle: -45
-  bulletAngle2: 315
+  fireBullet: {fileID: 0}
 --- !u!136 &5840000735834410238
 CapsuleCollider:
   m_ObjectHideFlags: 0

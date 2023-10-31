@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2871777542118282456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1714081907626772782}
+  m_Layer: 0
+  m_Name: Melee Damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1714081907626772782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871777542118282456}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3518173181256341382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4459711208168038426
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +46,8 @@ GameObject:
   - component: {fileID: 2962553336671621213}
   - component: {fileID: 946135171923675312}
   - component: {fileID: 5840000735834410238}
+  - component: {fileID: 6860596186540922825}
+  - component: {fileID: 6523543065460922783}
   - component: {fileID: 4940398549918913639}
   m_Layer: 0
   m_Name: Player
@@ -37,6 +70,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5661339491144813916}
+  - {fileID: 1714081907626772782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6517779001967024604
@@ -160,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8103a57847743014a92d1a2225d997a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBullet: {fileID: 0}
+  fireBullet: {fileID: 3180677428583762706, guid: 1b71cf7c2ee310c4686f003435ac5a80, type: 3}
 --- !u!136 &5840000735834410238
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -184,6 +218,31 @@ CapsuleCollider:
   m_Height: 7.78
   m_Direction: 1
   m_Center: {x: 0.028935552, y: 0, z: -0.22830462}
+--- !u!114 &6860596186540922825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459711208168038426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfef7b0091f943f478514774ba20045b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 2871777542118282456}
+--- !u!114 &6523543065460922783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459711208168038426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4763d18f2db4dd2419a2445d9e4e5857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &4940398549918913639
 Animator:
   serializedVersion: 5

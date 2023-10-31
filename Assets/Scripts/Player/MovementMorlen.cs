@@ -5,28 +5,13 @@ using UnityEngine;
 public class MovementMorlen : MonoBehaviour
 {
     public static MovementMorlen instance;
-<<<<<<< HEAD:Assets/Scripts/MovementMorlen.cs
 
     public float speed = 15;
-=======
-
-    public float speed = 15;
-
-        Rigidbody rbody;
-        Animator anim;
-
-    public static bool right = true;
-    
-
-
->>>>>>> Mario:Assets/Scripts/Player/MovementMorlen.cs
 
     Rigidbody rbody;
     Animator anim;
 
     public static bool right = true;
-
-
 
 
     // Use this for initialization
@@ -75,16 +60,12 @@ public class MovementMorlen : MonoBehaviour
 
     }
 
-<<<<<<< HEAD:Assets/Scripts/MovementMorlen.cs
-    public void changeDirection(int direction)
-=======
      public  void changeDirection(int direction)
->>>>>>> Mario:Assets/Scripts/Player/MovementMorlen.cs
+
     {
         Vector3 tempScale = transform.localScale;
         tempScale.x = direction;
         transform.localScale = tempScale;
     }
-
 
 }

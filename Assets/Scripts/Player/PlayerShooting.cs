@@ -5,19 +5,15 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject fireBullet;
-<<<<<<< HEAD:Assets/Scripts/PlayerShooting.cs
-    private Animator animator; //-new
-=======
->>>>>>> Mario:Assets/Scripts/Player/PlayerShooting.cs
 
+    private Animator animator;
+
+    public static bool canShoot = true;
 
     private void Start()
     {
-<<<<<<< HEAD:Assets/Scripts/PlayerShooting.cs
-        animator = GetComponent<Animator>(); //-new
-=======
-     
->>>>>>> Mario:Assets/Scripts/Player/PlayerShooting.cs
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -29,48 +25,50 @@ public class PlayerShooting : MonoBehaviour
     {
 
 
+        //if (Input.GetKeyDown(KeyCode.Mouse0)) 
+        //{
+        //    GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
+        //    bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
+        //    animator.SetBool("Melee", true); 
 
-<<<<<<< HEAD:Assets/Scripts/PlayerShooting.cs
-        if (Input.GetKeyDown(KeyCode.Mouse0)) //-change
+        //    if (MovementMorlen.right)
+        //    {
+        //        fireBullet.GetComponent<SpriteRenderer>().flipX = false;
+        //        animator.GetComponent<SpriteRenderer>().flipX = false; 
+        //    }
+        //    else if (!MovementMorlen.right)
+        //    {
+        //        fireBullet.GetComponent<SpriteRenderer>().flipX = true;
+        //        animator.GetComponent<SpriteRenderer>().flipX = true; 
+        //    }
+        //}
+        //if (Input.GetKeyUp(KeyCode.Mouse0))
+        //{
+        //    animator.SetBool("Melee", false);
+
+        if (canShoot)
         {
-            GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
-            bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
-            animator.SetBool("Melee", true); //-new
+            if (Input.GetKeyDown(KeyCode.J))
+            {
 
-            if (MovementMorlen.right)
-            {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = false;
-                animator.GetComponent<SpriteRenderer>().flipX = false; //-new
-            }
-            else if (!MovementMorlen.right)
-            {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = true;
-                animator.GetComponent<SpriteRenderer>().flipX = true; //-new
-            }
-        }
-        if (Input.GetKeyUp(KeyCode.Mouse0)) //-new
-        {
-            animator.SetBool("Melee", false); //-new
-        }
-        
-=======
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
-            bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
+                GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
+                bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
 
-            if( MovementMorlen.right)
-            {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (!MovementMorlen.right)
-            {
-                fireBullet.GetComponent<SpriteRenderer>().flipX = false;
-            }
+                if (MovementMorlen.right)
+                {
+                    fireBullet.GetComponent<SpriteRenderer>().flipX = true;
+                }
+                else if (!MovementMorlen.right)
+                {
+                    fireBullet.GetComponent<SpriteRenderer>().flipX = false;
+                }
 
+                ShootBar.instance.UseShooting(15);
+
+            }
+       
 
         }
->>>>>>> Mario:Assets/Scripts/Player/PlayerShooting.cs
-
+          
     }
 }

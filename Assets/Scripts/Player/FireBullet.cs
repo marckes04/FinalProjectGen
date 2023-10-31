@@ -54,12 +54,16 @@ public class FireBullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnTriggerEnter2D(Collider2D target)
+    void OnTriggerEnter(Collider target)
     {
 
-        if(target.tag == "House")
+        if(target.tag == "House" || target.tag == "Enemy")
         {
-            Destroy(gameObject);
+            // Bullet Animation of Destruction
+            speed = 0f;
+            anim.Play("Explode");
+            StartCoroutine(DisableBullet(0.9f));
+
         }
 
 

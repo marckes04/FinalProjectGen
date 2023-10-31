@@ -144,7 +144,7 @@ TextureImporter:
         width: 297
         height: 800
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +165,7 @@ TextureImporter:
         width: 297
         height: 785
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,27 +173,6 @@ TextureImporter:
       bones: []
       spriteID: 6e1d1e54c71d74e41becd186591dfcad
       internalID: 1896372554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NecrombieIdle_2
-      rect:
-        serializedVersion: 2
-        x: 1654
-        y: 428
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e7e336ce4d5d3b46a21a77cdefeac73
-      internalID: 1967427319
       vertices: []
       indices: 
       edges: []
@@ -207,7 +186,7 @@ TextureImporter:
         width: 297
         height: 800
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,7 +207,7 @@ TextureImporter:
         width: 295
         height: 804
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

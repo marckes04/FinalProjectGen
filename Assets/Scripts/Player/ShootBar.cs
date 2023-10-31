@@ -39,7 +39,6 @@ public class ShootBar : MonoBehaviour
 
             if(regen != null) 
                 StopCoroutine(regen);
-
           
         }
 

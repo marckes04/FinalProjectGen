@@ -37,4 +37,12 @@ public class MeleeAttack : MonoBehaviour
         attack.gameObject.SetActive(true);
     }
 
+    public void DeactivateDamage()
+    {
+        if (attack.activeInHierarchy)
+        {
+            attack.SetActive(false);
+        }
+    }
+
 }

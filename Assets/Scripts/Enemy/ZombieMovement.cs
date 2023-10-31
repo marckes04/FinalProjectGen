@@ -12,7 +12,7 @@ public class ZombieMovement : MonoBehaviour
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        GameObject player = GameObject.Find("MorlenSprite");
+        GameObject player = GameObject.Find("Player");
         playerTransform = player.transform;
     }
 

@@ -134,150 +134,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: BasicPowerupExplosion_0
-      rect:
-        serializedVersion: 2
-        x: 439
-        y: 356
-        width: 236
-        height: 281
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e32fd3aa45c0e9242baacd6c536ff76f
-      internalID: -137091027
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicPowerupExplosion_1
-      rect:
-        serializedVersion: 2
-        x: 1439
-        y: 343
-        width: 368
-        height: 355
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c6ef4cee2ba8b341ad6b814dca6a614
-      internalID: -1195392762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicPowerupExplosion_2
-      rect:
-        serializedVersion: 2
-        x: 2382
-        y: 312
-        width: 412
-        height: 426
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc083b13c77f21a4abacb96ad87577b6
-      internalID: -1623802401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicPowerupExplosion_3
-      rect:
-        serializedVersion: 2
-        x: 3408
-        y: 242
-        width: 395
-        height: 548
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ec7c346f11a1e44bb6d46078a1025c3
-      internalID: 536467981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicPowerupExplosion_4
-      rect:
-        serializedVersion: 2
-        x: 4434
-        y: 268
-        width: 360
-        height: 457
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 984872e58f5330d499ef795a99b61bd5
-      internalID: -1951786775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BasicPowerupExplosion_5
-      rect:
-        serializedVersion: 2
-        x: 5377
-        y: 194
-        width: 509
-        height: 601
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7afad7e999763fa41b88581faca97656
-      internalID: 1016021893
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: eec18389e38df554286b8dc30d996e11
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      BasicPowerupExplosion_0: -985954960
-      BasicPowerupExplosion_1: -535391349
-      BasicPowerupExplosion_2: 654502738
-      BasicPowerupExplosion_3: 1530895395
-      BasicPowerupExplosion_4: -523204609
-      BasicPowerupExplosion_5: 387830668
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

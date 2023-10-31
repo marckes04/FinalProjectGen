@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1755875095431394247}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4014866402430322876}
   - component: {fileID: 7464311223375269004}
-  - component: {fileID: 240429554867277888}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -137,21 +136,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.053808, y: 13.489825, z: 2.0100145}
-  m_Center: {x: 0, y: 0.07316065, z: -0.00000017881393}
---- !u!208 &240429554867277888
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2962516187214783150}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 4.5, y: 7.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_Size: {x: 9.053808, y: 13.489825, z: 3.7289429}
+  m_Center: {x: 0, y: 0.07316065, z: 0.37216187}

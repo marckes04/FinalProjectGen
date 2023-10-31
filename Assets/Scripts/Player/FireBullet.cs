@@ -63,7 +63,7 @@ public class FireBullet : MonoBehaviour
             speed = 0f;
             anim.Play("Explode");
             StartCoroutine(DisableBullet(0.9f));
-
+            EnemyLife.Instance.TakeDamage(30);
         }
     }
 

@@ -1,21 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
-    [SerializeField]private float Life = 90;
+    public static EnemyLife Instance;
 
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private int maxHealth = 90;
+    [SerializeField] private int currentHealth;
+
+
+    private void Awake()
     {
-        if(other.CompareTag("Bullet"))
-
-        {
-            Life -= 30;
-        }
-    
+        Instance = this;
     }
 
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
+    public void TakeDamage(int Amount)
+    {
+        currentHealth -= Amount;
+        if (currentHealth <= 0) 
+        {
+            Debug.Log("Enemy Destroyed");
+        }
+    }
 
 }

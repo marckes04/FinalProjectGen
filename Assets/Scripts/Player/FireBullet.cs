@@ -65,8 +65,6 @@ public class FireBullet : MonoBehaviour
             StartCoroutine(DisableBullet(0.9f));
 
         }
-
-
     }
 
 }

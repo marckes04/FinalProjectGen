@@ -3,27 +3,238 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum EnemyState
+{
+    PATROL,
+    CHASE,
+    ATTACK
+}
+
+
 public class ZombieMovement : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    [SerializeField] private float guardRange;
-    private Transform playerTransform;
-    // Start is called before the first frame update
-    void Start()
+
+    private EnemyAnimations enemyAnim;
+    private NavMeshAgent navAgent;
+
+    private EnemyState enemyState;
+
+    private float patrol_Radius = 30f;
+    private float patrol_Timer = 10f;
+    private float timer_Count;
+
+    public float move_Speed = 3.5f;
+    public float run_Speed = 5f;
+
+    private Transform player_Target;
+    public float chase_Distance = 7f;
+    public float attack_Distance = 1f;
+    public float chase_Player_After_Attack_Distance = 1f;
+
+    private float wait_Before_Attack_Time = 3f;
+    private float attack_Timer;
+
+    private bool enemyDied;
+
+    void Awake()
     {
-        agent = gameObject.GetComponent<NavMeshAgent>();
-        GameObject player = GameObject.Find("Player");
-        playerTransform = player.transform;
+        navAgent = GetComponent<NavMeshAgent>();
+        enemyAnim = GetComponent<EnemyAnimations>();
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+
+        timer_Count = patrol_Timer;
+        enemyState = EnemyState.PATROL;
+
+        player_Target = GameObject.FindGameObjectWithTag("Player").transform;
+        attack_Timer = wait_Before_Attack_Time;
+    }
+
     void Update()
     {
-        //TODO: Add Attack Logic
-        if (playerTransform != null && Vector3.Distance(playerTransform.position,transform.position)<guardRange) 
-        { 
-        agent.destination = playerTransform.position;
+
+        if (enemyDied)
+        {
+            return;
         }
+
+        if (enemyState == EnemyState.PATROL)
+        {
+            Patrol();
+        }
+
+        // if we are not chasing AND we are not attacking
+        if (enemyState != EnemyState.CHASE && enemyState != EnemyState.ATTACK)
+        {
+
+            if (Vector3.Distance(transform.position, player_Target.position) <= chase_Distance)
+            {
+
+                enemyState = EnemyState.CHASE;
+
+                //enemyAnim.StopAnimation();
+            }
+
+        } // if we should chase
+
+        if (enemyState == EnemyState.CHASE)
+        {
+            ChasePlayer();
+        }
+
+        if (enemyState == EnemyState.ATTACK)
+        {
+            AttackPlayer();
+        }
+
+    } // update
+
+    void Patrol()
+    {
+
+        timer_Count += Time.deltaTime;
+        navAgent.speed = move_Speed;
+
+        if (timer_Count > patrol_Timer)
+        {
+
+            SetNewRandomDestination();
+
+            timer_Count = 0f;
+
+        }
+
+        if (navAgent.remainingDistance <= 0.5f)
+        {
+            // stop the nav agent from moving
+            navAgent.velocity = Vector3.zero;
+        }
+
+        if (navAgent.velocity.sqrMagnitude == 0)
+        {
+
+            //enemyAnim.Walk(false);
+
+        }
+        else
+        {
+
+           // enemyAnim.Walk(true);
+
+        }
+
     }
+
+    void SetNewRandomDestination()
+    {
+
+        Vector3 newDestionation = RandomNavSphere(transform.position, patrol_Radius, -1);
+        navAgent.SetDestination(newDestionation);
+    }
+
+    Vector3 RandomNavSphere(Vector3 originPos, float dist, int layerMask)
+    {
+
+        Vector3 randDir = Random.insideUnitSphere * dist;
+        randDir += originPos;
+
+        NavMeshHit navHit;
+
+        NavMesh.SamplePosition(randDir, out navHit, dist, layerMask);
+
+        return navHit.position;
+    }
+
+    void ChasePlayer()
+    {
+
+        navAgent.SetDestination(player_Target.position);
+        navAgent.speed = run_Speed;
+
+        if (navAgent.velocity.sqrMagnitude == 0)
+        {
+
+            //enemyAnim.Run(false);
+
+        }
+        else
+        {
+
+           // enemyAnim.Run(true);
+
+        }
+
+        // we are in the range of the attack
+        if (Vector3.Distance(transform.position, player_Target.position) <= attack_Distance)
+        {
+
+            enemyState = EnemyState.ATTACK;
+
+        }
+        else if (Vector3.Distance(transform.position, player_Target.position)
+                  > chase_Distance)
+        {
+
+            timer_Count = patrol_Timer;
+            enemyState = EnemyState.PATROL;
+           // enemyAnim.Run(false);
+
+        }
+
+    } // chase player
+
+    void AttackPlayer()
+    {
+
+        // stop the velocity meaning the game object will stop moving
+        navAgent.velocity = Vector3.zero;
+        navAgent.isStopped = true;
+
+       // enemyAnim.Run(false);
+       //enemyAnim.Walk(false);
+
+        attack_Timer += Time.deltaTime;
+
+        if (attack_Timer > wait_Before_Attack_Time)
+        {
+
+            //enemyAnim.NormalAttack_1();
+
+            //attack_Timer = 0f;
+
+        }
+
+        if (Vector3.Distance(transform.position, player_Target.position) >
+           attack_Distance + chase_Player_After_Attack_Distance)
+        {
+
+            // enable the agent to move again
+            navAgent.isStopped = false;
+
+            enemyState = EnemyState.CHASE;
+
+        }
+
+    } // attack player
+
+    void DeactivateScript()
+    {
+
+        //GameplayController.instance.EnemyDied();
+
+        enemyDied = true;
+
+        StartCoroutine(DeactivateEnemyGameObject());
+
+    }
+
+    IEnumerator DeactivateEnemyGameObject()
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
+    }
+
 
 }

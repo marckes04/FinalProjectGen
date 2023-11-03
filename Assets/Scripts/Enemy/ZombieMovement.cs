@@ -74,7 +74,7 @@ public class ZombieMovement : MonoBehaviour
 
                 enemyState = EnemyState.CHASE;
 
-                //enemyAnim.StopAnimation();
+                enemyAnim.StopAnimation();
             }
 
         } // if we should chase
@@ -115,13 +115,13 @@ public class ZombieMovement : MonoBehaviour
         if (navAgent.velocity.sqrMagnitude == 0)
         {
 
-            //enemyAnim.Walk(false);
+            enemyAnim.Walk(false);
 
         }
         else
         {
 
-           // enemyAnim.Walk(true);
+           enemyAnim.Walk(true);
 
         }
 
@@ -156,13 +156,13 @@ public class ZombieMovement : MonoBehaviour
         if (navAgent.velocity.sqrMagnitude == 0)
         {
 
-            //enemyAnim.Run(false);
+            enemyAnim.Run(false);
 
         }
         else
         {
 
-           // enemyAnim.Run(true);
+           enemyAnim.Run(true);
 
         }
 
@@ -179,7 +179,7 @@ public class ZombieMovement : MonoBehaviour
 
             timer_Count = patrol_Timer;
             enemyState = EnemyState.PATROL;
-           // enemyAnim.Run(false);
+            enemyAnim.Run(false);
 
         }
 
@@ -192,8 +192,8 @@ public class ZombieMovement : MonoBehaviour
         navAgent.velocity = Vector3.zero;
         navAgent.isStopped = true;
 
-       // enemyAnim.Run(false);
-       //enemyAnim.Walk(false);
+        enemyAnim.Run(false);
+        enemyAnim.Walk(false);
 
         attack_Timer += Time.deltaTime;
 

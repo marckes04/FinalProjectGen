@@ -13,6 +13,7 @@ public enum EnemyState
 
 public class ZombieMovement : MonoBehaviour
 {
+    public static ZombieMovement instance;
 
     private EnemyAnimations enemyAnim;
     private NavMeshAgent navAgent;
@@ -40,6 +41,7 @@ public class ZombieMovement : MonoBehaviour
     {
         navAgent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponent<EnemyAnimations>();
+        instance = this;
     }
 
     void Start()
@@ -219,10 +221,8 @@ public class ZombieMovement : MonoBehaviour
 
     } // attack player
 
-    void DeactivateScript()
+    public void DeactivateScript()
     {
-
-        //GameplayController.instance.EnemyDied();
 
         enemyDied = true;
 

@@ -26,7 +26,8 @@ public class EnemyLife : MonoBehaviour
         currentHealth -= Amount;
         if (currentHealth <= 0) 
         {
-            Debug.Log("Enemy Destroyed");
+           ZombieMovement.instance.DeactivateScript();
+
         }
     }
 

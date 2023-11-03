@@ -36,8 +36,5 @@ public class PlayerHealth: MonoBehaviour
 
     }
 
-    public void Heal()
-    {
-        
-    }
+  
 }

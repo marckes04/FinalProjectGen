@@ -26,9 +26,24 @@ public class EnemyLife : MonoBehaviour
         currentHealth -= Amount;
         if (currentHealth <= 0) 
         {
-           ZombieMovement.instance.DeactivateScript();
-
+           DeactivateScript();
         }
+    }
+
+    public void DeactivateScript()
+    {
+
+       // enemyDied = true;
+
+        StartCoroutine(DeactivateEnemyGameObject());
+        Destroy(gameObject);
+
+    }
+
+    IEnumerator DeactivateEnemyGameObject()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 
 }

@@ -11456,7 +11456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed80a3185b8e0d4484137036db1aac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootBar: {fileID: 2008159724}
+  shoot: {fileID: 2008159724}
 --- !u!114 &2008159724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12303,6 +12303,10 @@ PrefabInstance:
     - target: {fileID: 6616431891935623286, guid: 1812cdd28da6a9140b06ea0ffbd099a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453427102956798935, guid: 1812cdd28da6a9140b06ea0ffbd099a5, type: 3}
+      propertyPath: run_Speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

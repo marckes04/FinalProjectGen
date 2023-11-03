@@ -51,7 +51,7 @@ public class PlayerShooting : MonoBehaviour
                     fireBullet.GetComponent<SpriteRenderer>().flipX = false;
                 }
 
-                ShootBar.instance.UseShooting(15);
+                ShootBar.instance.ShootUse();
 
             }
 

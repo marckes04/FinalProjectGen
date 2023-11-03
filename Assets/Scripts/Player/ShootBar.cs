@@ -34,9 +34,6 @@ public class ShootBar : MonoBehaviour
             PlayerShooting.canShoot = false;
         }
 
-        if(shoot.value > 0) {
-            PlayerShooting.canShoot = true;
-        }
     }
 
 

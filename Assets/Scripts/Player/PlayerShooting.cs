@@ -14,10 +14,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void Start()
     {
-
         animator = GetComponent<Animator>();
         magicAttack = GetComponent<AnimationAttack>();
-
     }
 
     private void Update()
@@ -40,7 +38,7 @@ public class PlayerShooting : MonoBehaviour
 
                 GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
                 bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
-            
+
 
                 if (MovementMorlen.right)
                 {
@@ -54,12 +52,7 @@ public class PlayerShooting : MonoBehaviour
                 ShootBar.instance.ShootUse();
 
             }
-
-
-          
-
         }
-       
           
     }
 
@@ -69,6 +62,7 @@ public class PlayerShooting : MonoBehaviour
         {
             ShootBar.instance.RechargeMagic();
             Destroy(other.gameObject);
+            canShoot = true;
         }
     }
 

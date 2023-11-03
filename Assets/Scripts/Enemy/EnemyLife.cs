@@ -26,8 +26,24 @@ public class EnemyLife : MonoBehaviour
         currentHealth -= Amount;
         if (currentHealth <= 0) 
         {
-            Debug.Log("Enemy Destroyed");
+           DeactivateScript();
         }
+    }
+
+    public void DeactivateScript()
+    {
+
+       // enemyDied = true;
+
+        StartCoroutine(DeactivateEnemyGameObject());
+        Destroy(gameObject);
+
+    }
+
+    IEnumerator DeactivateEnemyGameObject()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 
 }

@@ -5,47 +5,47 @@ using UnityEngine.UI;
 
 public class ShootBar : MonoBehaviour
 {
-    public Slider shootBar;
-    private int maxShoot = 100;
-    private int currentShoot;
-
     public static ShootBar instance;
 
- 
-    private Coroutine regen;
-
+    public Slider shoot;
 
 
     private void Awake()
     {
         instance = this;
+
     }
 
-    void Start()
+    private void Start()
     {
-        currentShoot = maxShoot; 
-        shootBar.maxValue = maxShoot;
-        shootBar.value = maxShoot;
+        shoot.minValue = 0;
+        shoot.maxValue = 10;
+
+        shoot.value = 10;
     }
 
-    public void UseShooting(int amount)
+
+    public void ShootUse()
     {
-        if (currentShoot - amount >= 0)
-        {
-           
-            currentShoot -= amount;
-            shootBar.value = currentShoot;
+        shoot.value -= 2;
 
-
-            if(regen != null) 
-                StopCoroutine(regen);
-          
-        }
-
-        else
+        if(shoot.value <= 0)
         {
             PlayerShooting.canShoot = false;
         }
+
+    }
+
+
+    public void RechargeMagic()
+    {
+        shoot.value += 2;
+        if(shoot.value > shoot.maxValue) 
+        {
+            shoot.value = shoot.maxValue;        
+        }
+
+
     }
 
 

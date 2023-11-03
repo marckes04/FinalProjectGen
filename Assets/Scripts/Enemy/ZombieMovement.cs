@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ public enum EnemyState
 
 public class ZombieMovement : MonoBehaviour
 {
+    public static ZombieMovement instance;
 
     private EnemyAnimations enemyAnim;
     private NavMeshAgent navAgent;
@@ -34,12 +36,17 @@ public class ZombieMovement : MonoBehaviour
     private float wait_Before_Attack_Time = 3f;
     private float attack_Timer;
 
+    private bool flipX  = false;
+
+
+
     private bool enemyDied;
 
     void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponent<EnemyAnimations>();
+        instance = this;
     }
 
     void Start()
@@ -74,7 +81,7 @@ public class ZombieMovement : MonoBehaviour
 
                 enemyState = EnemyState.CHASE;
 
-                //enemyAnim.StopAnimation();
+                enemyAnim.StopAnimation();
             }
 
         } // if we should chase
@@ -88,6 +95,22 @@ public class ZombieMovement : MonoBehaviour
         {
             AttackPlayer();
         }
+
+
+        // Update the flipX value based on the movement direction
+        if (navAgent.velocity.x < 0)
+        {
+            flipX = false;
+        }
+        else if (navAgent.velocity.x > 0)
+        {
+            flipX = true;
+        }
+
+        // Flip the sprite based on flipX value
+        FlipSpriteRenderer();
+
+
 
     } // update
 
@@ -115,13 +138,13 @@ public class ZombieMovement : MonoBehaviour
         if (navAgent.velocity.sqrMagnitude == 0)
         {
 
-            //enemyAnim.Walk(false);
+            enemyAnim.Walk(false);
 
         }
         else
         {
 
-           // enemyAnim.Walk(true);
+           enemyAnim.Walk(true);
 
         }
 
@@ -132,6 +155,11 @@ public class ZombieMovement : MonoBehaviour
 
         Vector3 newDestionation = RandomNavSphere(transform.position, patrol_Radius, -1);
         navAgent.SetDestination(newDestionation);
+
+        if(move_Speed < 0)
+        {
+
+        }
     }
 
     Vector3 RandomNavSphere(Vector3 originPos, float dist, int layerMask)
@@ -156,13 +184,13 @@ public class ZombieMovement : MonoBehaviour
         if (navAgent.velocity.sqrMagnitude == 0)
         {
 
-            //enemyAnim.Run(false);
+            enemyAnim.Run(false);
 
         }
         else
         {
 
-           // enemyAnim.Run(true);
+           enemyAnim.Run(true);
 
         }
 
@@ -179,7 +207,7 @@ public class ZombieMovement : MonoBehaviour
 
             timer_Count = patrol_Timer;
             enemyState = EnemyState.PATROL;
-           // enemyAnim.Run(false);
+            enemyAnim.Run(false);
 
         }
 
@@ -192,8 +220,8 @@ public class ZombieMovement : MonoBehaviour
         navAgent.velocity = Vector3.zero;
         navAgent.isStopped = true;
 
-       // enemyAnim.Run(false);
-       //enemyAnim.Walk(false);
+        enemyAnim.Run(false);
+        enemyAnim.Walk(false);
 
         attack_Timer += Time.deltaTime;
 
@@ -219,22 +247,32 @@ public class ZombieMovement : MonoBehaviour
 
     } // attack player
 
-    void DeactivateScript()
+    void FlipSpriteRenderer()
     {
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        //GameplayController.instance.EnemyDied();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.flipX = flipX;
+        }
+    }
+
+
+    public void DeactivateScript()
+    {
 
         enemyDied = true;
 
-        StartCoroutine(DeactivateEnemyGameObject());
+       // StartCoroutine(DeactivateEnemyGameObject());
+       Destroy(gameObject);
 
     }
 
-    IEnumerator DeactivateEnemyGameObject()
-    {
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
-    }
+    //IEnumerator DeactivateEnemyGameObject()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    Destroy(gameObject);
+    //}
 
 
 }

@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class EnemyAnimations : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator anim;
+
+    void Awake()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Walk(bool walk)
     {
-        
+        anim.SetBool("Walk", walk);
+    }
+
+    public void Run(bool run)
+    {
+        anim.SetBool("Run", run);
+    }
+
+    public void StopAnimation()
+    {
+        anim.StopPlayback();
     }
 }

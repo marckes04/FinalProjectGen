@@ -14,10 +14,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void Start()
     {
-
         animator = GetComponent<Animator>();
         magicAttack = GetComponent<AnimationAttack>();
-
     }
 
     private void Update()
@@ -40,7 +38,7 @@ public class PlayerShooting : MonoBehaviour
 
                 GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
                 bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
-            
+
 
                 if (MovementMorlen.right)
                 {
@@ -51,15 +49,21 @@ public class PlayerShooting : MonoBehaviour
                     fireBullet.GetComponent<SpriteRenderer>().flipX = false;
                 }
 
-                ShootBar.instance.UseShooting(15);
+                ShootBar.instance.ShootUse();
 
             }
-
-
-          
-
         }
-       
           
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Farmer"))
+        {
+            ShootBar.instance.RechargeMagic();
+            Destroy(other.gameObject);
+            canShoot = true;
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -34,6 +35,10 @@ public class ZombieMovement : MonoBehaviour
 
     private float wait_Before_Attack_Time = 3f;
     private float attack_Timer;
+
+    private bool flipX  = false;
+
+
 
     private bool enemyDied;
 
@@ -91,6 +96,22 @@ public class ZombieMovement : MonoBehaviour
             AttackPlayer();
         }
 
+
+        // Update the flipX value based on the movement direction
+        if (navAgent.velocity.x < 0)
+        {
+            flipX = false;
+        }
+        else if (navAgent.velocity.x > 0)
+        {
+            flipX = true;
+        }
+
+        // Flip the sprite based on flipX value
+        FlipSpriteRenderer();
+
+
+
     } // update
 
     void Patrol()
@@ -134,6 +155,11 @@ public class ZombieMovement : MonoBehaviour
 
         Vector3 newDestionation = RandomNavSphere(transform.position, patrol_Radius, -1);
         navAgent.SetDestination(newDestionation);
+
+        if(move_Speed < 0)
+        {
+
+        }
     }
 
     Vector3 RandomNavSphere(Vector3 originPos, float dist, int layerMask)
@@ -220,6 +246,17 @@ public class ZombieMovement : MonoBehaviour
         }
 
     } // attack player
+
+    void FlipSpriteRenderer()
+    {
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.flipX = flipX;
+        }
+    }
+
 
     public void DeactivateScript()
     {

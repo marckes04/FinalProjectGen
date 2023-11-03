@@ -37,4 +37,16 @@ public class ShootBar : MonoBehaviour
     }
 
 
+    public void RechargeMagic()
+    {
+        shoot.value += 2;
+        if(shoot.value > shoot.maxValue) 
+        {
+            shoot.value = shoot.maxValue;        
+        }
+
+
+    }
+
+
 }

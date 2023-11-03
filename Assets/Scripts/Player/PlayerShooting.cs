@@ -62,4 +62,14 @@ public class PlayerShooting : MonoBehaviour
        
           
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Farmer"))
+        {
+            ShootBar.instance.RechargeMagic();
+            Destroy(other.gameObject);
+        }
+    }
+
 }

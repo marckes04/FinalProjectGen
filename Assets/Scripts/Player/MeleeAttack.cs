@@ -15,9 +15,6 @@ public class MeleeAttack : MonoBehaviour
       playerAnimation = GetComponent<AnimationAttack>();       
     }
 
-
-
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -30,7 +27,6 @@ public class MeleeAttack : MonoBehaviour
 
         }
     }
-
 
     public void Damage()
     {

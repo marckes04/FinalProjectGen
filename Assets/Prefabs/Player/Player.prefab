@@ -47,7 +47,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 64
-  radius: 1
+  radius: 15
   damage: 30
 --- !u!1 &4459711208168038426
 GameObject:
@@ -233,10 +233,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.93188083
+  m_Radius: 1.3138428
   m_Height: 7.78
   m_Direction: 1
-  m_Center: {x: 0.13, y: 0, z: 0.1698569}
+  m_Center: {x: 0.01174438, y: 0, z: 0.1593628}
 --- !u!114 &6860596186540922825
 MonoBehaviour:
   m_ObjectHideFlags: 0

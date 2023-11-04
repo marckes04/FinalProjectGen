@@ -258,21 +258,7 @@ public class ZombieMovement : MonoBehaviour
     }
 
 
-    public void DeactivateScript()
-    {
-
-        enemyDied = true;
-
-       // StartCoroutine(DeactivateEnemyGameObject());
-       Destroy(gameObject);
-
-    }
-
-    //IEnumerator DeactivateEnemyGameObject()
-    //{
-    //    yield return new WaitForSeconds(2f);
-    //    Destroy(gameObject);
-    //}
+   
 
 
 }

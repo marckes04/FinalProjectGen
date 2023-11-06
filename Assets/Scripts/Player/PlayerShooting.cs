@@ -28,18 +28,12 @@ public class PlayerShooting : MonoBehaviour
 
         if (canShoot)
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 if (Random.Range(1, 2) > 0)
                 {
                     magicAttack.MagicAttack();
                 }
-
-
-                GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
-                bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
-
-
                 if (MovementMorlen.right)
                 {
                     fireBullet.GetComponent<SpriteRenderer>().flipX = true;
@@ -48,6 +42,8 @@ public class PlayerShooting : MonoBehaviour
                 {
                     fireBullet.GetComponent<SpriteRenderer>().flipX = false;
                 }
+                GameObject bullet = Instantiate(fireBullet, transform.position, Quaternion.identity);
+                bullet.GetComponent<FireBullet>().Speed *= transform.localScale.x;
 
                 ShootBar.instance.ShootUse();
 

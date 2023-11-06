@@ -1,32 +1,34 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class FireBullet : MonoBehaviour
 {
-    private float speed = 10f;
-    private Animator anim;
+    [SerializeField] private float speed = 20f;
+    [SerializeField] private int damage = 90;
+    [SerializeField] private float disableAfter = 5f;
 
+    private Animator _animator;
     private bool canMove;
 
-    void Awake()
+    public float Speed
     {
-        anim = GetComponent<Animator>();
+        get => speed;
+        set => speed = value;
     }
 
-    void Start()
+    private void Start()
     {
+        _animator = GetComponent<Animator>();
         canMove = true;
-        StartCoroutine(DisableBullet(5f));
+        StartCoroutine(DisableBullet(disableAfter));
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         Move();
     }
 
-    void Move()
+    private void Move()
     {
         if (canMove)
         {
@@ -36,33 +38,26 @@ public class FireBullet : MonoBehaviour
         }
     }
 
-    public float Speed
+    private void OnTriggerEnter(Collider target)
     {
-        get
+
+        if (target.CompareTag("Enemy"))
         {
-            return speed;
+            target.gameObject.GetComponent<EnemyLife>().TakeDamage(damage);
+            _animator.Play("Explode");
+            speed = 0f;
+            StartCoroutine(DisableBullet(1f));
         }
-        set
+
+        if (target.CompareTag("House"))
         {
-            speed = value;
+            // not implemented yet
         }
     }
 
-    IEnumerator DisableBullet(float timer)
+    private IEnumerator DisableBullet(float timer)
     {
         yield return new WaitForSeconds(timer);
         gameObject.SetActive(false);
     }
-
-    void OnTriggerEnter2D(Collider2D target)
-    {
-
-        if(target.tag == "House")
-        {
-            Destroy(gameObject);
-        }
-
-
-    }
-
 }

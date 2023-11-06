@@ -15,15 +15,12 @@ public class MeleeAttack : MonoBehaviour
       playerAnimation = GetComponent<AnimationAttack>();       
     }
 
-
-
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
 
-            if (Random.Range(0, 2) > 0)
+            if (Random.Range(1, 2) > 0)
             {
                 playerAnimation.AttackMelee();
             }
@@ -31,10 +28,17 @@ public class MeleeAttack : MonoBehaviour
         }
     }
 
-
     public void Damage()
     {
         attack.gameObject.SetActive(true);
+    }
+
+    public void DeactivateDamage()
+    {
+        if (attack.activeInHierarchy)
+        {
+            attack.SetActive(false);
+        }
     }
 
 }

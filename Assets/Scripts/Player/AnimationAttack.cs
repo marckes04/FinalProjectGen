@@ -16,4 +16,10 @@ public class AnimationAttack : MonoBehaviour
         anim.SetTrigger("Attack");
     }
 
+    public void MagicAttack()
+    {
+        anim.SetTrigger("Power");
+    }
+
+
 }

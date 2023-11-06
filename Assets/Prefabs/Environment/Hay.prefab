@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7759442824328152631}
   - component: {fileID: 6640960105612162061}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3570414151514869537}
   - component: {fileID: 5378711540382705610}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hay
   m_TagString: Untagged
   m_Icon: {fileID: 0}

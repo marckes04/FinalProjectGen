@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1714081907626772782}
-  m_Layer: 0
+  - component: {fileID: 8531796956316205518}
+  m_Layer: 11
   m_Name: Melee Damage
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1714081907626772782
 Transform:
   m_ObjectHideFlags: 0
@@ -25,12 +26,29 @@ Transform:
   m_GameObject: {fileID: 2871777542118282456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.88, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3518173181256341382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8531796956316205518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871777542118282456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76924fc4b8c10b34895a8b147523429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 64
+  radius: 15
+  damage: 30
 --- !u!1 &4459711208168038426
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,9 +67,10 @@ GameObject:
   - component: {fileID: 6860596186540922825}
   - component: {fileID: 6523543065460922783}
   - component: {fileID: 4940398549918913639}
-  m_Layer: 0
+  - component: {fileID: 458119591337460629}
+  m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +134,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 769008001, guid: 9e794843a4a6f4e4fb01762544b3bb3c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c4337de8ab14343a4899d07e477b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 1000
 --- !u!114 &2962553336671621213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +191,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4459711208168038426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87b253064bb2f3e429b47e94aa24f69c, type: 3}
   m_Name: 
@@ -214,10 +233,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.6727269
+  m_Radius: 1.3138428
   m_Height: 7.78
   m_Direction: 1
-  m_Center: {x: 0.028935552, y: 0, z: -0.22830462}
+  m_Center: {x: 0.01174438, y: 0, z: 0.1593628}
 --- !u!114 &6860596186540922825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +283,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &458119591337460629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459711208168038426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c41a7e8845f82479fbc85dc826de33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5155586713664798527
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5661339491144813916}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BulletPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

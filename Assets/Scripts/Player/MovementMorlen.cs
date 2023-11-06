@@ -43,7 +43,7 @@ public class MovementMorlen : MonoBehaviour
         // rbody.MovePosition(rbody.position + movement_vector * Time.deltaTime);
 
         Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * speed * Time.deltaTime;
-        transform.Translate(movement);
+        rbody.velocity = movement;
 
 
         if (horizontalInput > 0)

@@ -10,6 +10,9 @@ public class EnemyLife : MonoBehaviour
     [SerializeField] private int maxHealth = 90;
     [SerializeField] private int currentHealth;
 
+    private Animator anim;
+
+    public string explosionTag = "ExplodedEnemy"; // The tag you want to set on the enemy after the explosion.
 
     private void Awake()
     {
@@ -19,31 +22,31 @@ public class EnemyLife : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        anim = GetComponent <Animator>();
     }
 
     public void TakeDamage(int Amount)
     {
         currentHealth -= Amount;
-        if (currentHealth <= 0) 
+        if (currentHealth <= 0)
         {
-           DeactivateScript();
+            DeactivateScript();
         }
     }
 
     public void DeactivateScript()
     {
-
-       // enemyDied = true;
-
         StartCoroutine(DeactivateEnemyGameObject());
-        Destroy(gameObject);
-
     }
 
     IEnumerator DeactivateEnemyGameObject()
     {
+        anim.Play("Explossion");
+
+        // Change the tag of the enemy to the specified explosionTag.
+        gameObject.tag = explosionTag;
+
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
-
 }

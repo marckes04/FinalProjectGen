@@ -9,6 +9,6 @@ public class StartGame : MonoBehaviour
     public void LoadMainScene()
     {
         AudioManager.instance.StopMusic();
-        SceneManager.LoadScene("Main"); 
+        SceneManager.LoadScene("LevelComplete"); 
     }
 }

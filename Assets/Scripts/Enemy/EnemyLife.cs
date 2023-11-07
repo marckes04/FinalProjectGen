@@ -12,6 +12,8 @@ public class EnemyLife : MonoBehaviour
 
     private Animator anim;
 
+    public string explosionTag = "ExplodedEnemy"; // The tag you want to set on the enemy after the explosion.
+
     private void Awake()
     {
         Instance = this;
@@ -20,32 +22,31 @@ public class EnemyLife : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        anim = GetComponent<Animator>();
+        anim = GetComponent <Animator>();
     }
 
     public void TakeDamage(int Amount)
     {
         currentHealth -= Amount;
-        if (currentHealth <= 0) 
+        if (currentHealth <= 0)
         {
-            anim.Play("Explossion");
             DeactivateScript();
         }
     }
 
     public void DeactivateScript()
     {
-        
-
         StartCoroutine(DeactivateEnemyGameObject());
-
     }
 
     IEnumerator DeactivateEnemyGameObject()
     {
-        
+        anim.Play("Explossion");
+
+        // Change the tag of the enemy to the specified explosionTag.
+        gameObject.tag = explosionTag;
+
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
-
 }

@@ -10,6 +10,7 @@ public class EnemyLife : MonoBehaviour
     [SerializeField] private int maxHealth = 90;
     [SerializeField] private int currentHealth;
 
+    private Animator anim;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class EnemyLife : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        anim = GetComponent<Animator>();
     }
 
     public void TakeDamage(int Amount)
@@ -26,22 +28,22 @@ public class EnemyLife : MonoBehaviour
         currentHealth -= Amount;
         if (currentHealth <= 0) 
         {
-           DeactivateScript();
+            anim.Play("Explossion");
+            DeactivateScript();
         }
     }
 
     public void DeactivateScript()
     {
-
-       // enemyDied = true;
+        
 
         StartCoroutine(DeactivateEnemyGameObject());
-        Destroy(gameObject);
 
     }
 
     IEnumerator DeactivateEnemyGameObject()
     {
+        
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }

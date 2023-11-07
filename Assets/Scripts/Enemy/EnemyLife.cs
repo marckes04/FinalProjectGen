@@ -22,7 +22,7 @@ public class EnemyLife : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        anim = GetComponent <Animator>();
+        anim = GetComponent<Animator>();
     }
 
     public void TakeDamage(int Amount)
@@ -41,12 +41,26 @@ public class EnemyLife : MonoBehaviour
 
     IEnumerator DeactivateEnemyGameObject()
     {
+        // Disable collisions with game objects tagged as "Player"
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (Collider2D collider in colliders)
+        {
+            Physics2D.IgnoreCollision(collider, GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), true);
+        }
+
         anim.Play("Explossion");
 
         // Change the tag of the enemy to the specified explosionTag.
         gameObject.tag = explosionTag;
 
         yield return new WaitForSeconds(2f);
+
+        // Re-enable collisions with game objects tagged as "Player"
+        foreach (Collider2D collider in colliders)
+        {
+            Physics2D.IgnoreCollision(collider, GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), false);
+        }
+
         Destroy(gameObject);
     }
 }

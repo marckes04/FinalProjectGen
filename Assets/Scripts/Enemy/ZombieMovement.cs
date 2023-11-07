@@ -100,11 +100,11 @@ public class ZombieMovement : MonoBehaviour
         // Update the flipX value based on the movement direction
         if (navAgent.velocity.x < 0)
         {
-            flipX = false;
+            flipX = true;
         }
         else if (navAgent.velocity.x > 0)
         {
-            flipX = true;
+            flipX = false;
         }
 
         // Flip the sprite based on flipX value

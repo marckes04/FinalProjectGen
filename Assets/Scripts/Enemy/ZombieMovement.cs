@@ -25,8 +25,8 @@ public class ZombieMovement : MonoBehaviour
     private float patrol_Timer = 10f;
     private float timer_Count;
 
-    public float move_Speed = 3.5f;
-    public float run_Speed = 5f;
+    public static float move_Speed = 3.5f;
+    public static float run_Speed = 5f;
 
     private Transform player_Target;
     public float chase_Distance = 7f;

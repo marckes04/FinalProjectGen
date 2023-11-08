@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+
     private void OnCollisionEnter(Collision collision)
     {
         
@@ -12,4 +13,5 @@ public class PlayerCollision : MonoBehaviour
             PlayerHealth.instance.Damage();
         }
     }
+
 }

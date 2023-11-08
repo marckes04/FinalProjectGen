@@ -54,11 +54,11 @@ public class PlayerShooting : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Farmer"))
+        if(other.tag == "Farmer")
         {
             ShootBar.instance.RechargeMagic();
-            Destroy(other.gameObject);
             canShoot = true;
+          
         }
     }
 

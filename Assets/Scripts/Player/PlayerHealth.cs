@@ -10,7 +10,6 @@ public class PlayerHealth: MonoBehaviour
 
     public Slider health;
 
-
     private void Awake()
     {
         instance = this;
@@ -20,7 +19,6 @@ public class PlayerHealth: MonoBehaviour
     {
         health.minValue = 0;
         health.maxValue = 10;
-
         health.value = 10;
     }
 
@@ -31,10 +29,17 @@ public class PlayerHealth: MonoBehaviour
 
         if(health.value <= 0)
         {
-            Debug.Log("Die");
+          
+          GameManager.instance.PlayerStaus(0);
+
         }
 
     }
 
+
+    public void RestoreLife()
+    {
+        health.value = float.MaxValue;
+    }
   
 }

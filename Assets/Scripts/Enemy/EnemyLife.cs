@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
@@ -11,7 +9,6 @@ public class EnemyLife : MonoBehaviour
     [SerializeField] private int currentHealth;
 
     private Animator anim;
-
     public string explosionTag = "ExplodedEnemy"; // The tag you want to set on the enemy after the explosion.
 
     private void Awake()
@@ -41,7 +38,6 @@ public class EnemyLife : MonoBehaviour
 
     IEnumerator DeactivateEnemyGameObject()
     {
-        // Disable collisions with game objects tagged as "Player"
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
@@ -50,12 +46,13 @@ public class EnemyLife : MonoBehaviour
 
         anim.Play("Explossion");
 
-        // Change the tag of the enemy to the specified explosionTag.
         gameObject.tag = explosionTag;
 
         yield return new WaitForSeconds(2f);
 
-        // Re-enable collisions with game objects tagged as "Player"
+        // Notify SpawnZombie to spawn a new enemy
+        SpawnZombie.instance.OnEnemyKilled();
+
         foreach (Collider2D collider in colliders)
         {
             Physics2D.IgnoreCollision(collider, GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>(), false);
@@ -64,3 +61,4 @@ public class EnemyLife : MonoBehaviour
         Destroy(gameObject);
     }
 }
+

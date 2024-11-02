@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public enum EnemyState
 {
@@ -11,15 +12,19 @@ public enum EnemyState
     ATTACK
 }
 
-
 public class ZombieMovement : MonoBehaviour
 {
     public static ZombieMovement instance;
 
     private EnemyAnimations enemyAnim;
     private NavMeshAgent navAgent;
-
     private EnemyState enemyState;
+    private Stopwatch stopwatch; // Used for time measurement
+
+    // UI Text elements for displaying state times
+    public Text patrolTimeText;
+    public Text chaseTimeText;
+    public Text attackTimeText;
 
     private float patrol_Radius = 30f;
     private float patrol_Timer = 10f;
@@ -36,10 +41,7 @@ public class ZombieMovement : MonoBehaviour
     private float wait_Before_Attack_Time = 3f;
     private float attack_Timer;
 
-    private bool flipX  = false;
-
-
-
+    private bool flipX = false;
     private bool enemyDied;
 
     void Awake()
@@ -47,57 +49,53 @@ public class ZombieMovement : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponent<EnemyAnimations>();
         instance = this;
+        stopwatch = new Stopwatch(); // Initialize the stopwatch
     }
 
     void Start()
     {
-
         timer_Count = patrol_Timer;
         enemyState = EnemyState.PATROL;
-
         player_Target = GameObject.FindGameObjectWithTag("Player").transform;
         attack_Timer = wait_Before_Attack_Time;
+
+        stopwatch.Start(); // Start the stopwatch initially
+
+        // Initialize UI text values
+        if (patrolTimeText != null) patrolTimeText.text = "Patrol Time: 0 ms";
+        if (chaseTimeText != null) chaseTimeText.text = "Chase Time: 0 ms";
+        if (attackTimeText != null) attackTimeText.text = "Attack Time: 0 ms";
     }
 
     void Update()
     {
-
         if (enemyDied)
         {
             return;
         }
 
-        if (enemyState == EnemyState.PATROL)
+        switch (enemyState)
         {
-            Patrol();
+            case EnemyState.PATROL:
+                Patrol();
+                break;
+            case EnemyState.CHASE:
+                ChasePlayer();
+                break;
+            case EnemyState.ATTACK:
+                AttackPlayer();
+                break;
         }
 
-        // if we are not chasing AND we are not attacking
         if (enemyState != EnemyState.CHASE && enemyState != EnemyState.ATTACK)
         {
-
             if (Vector3.Distance(transform.position, player_Target.position) <= chase_Distance)
             {
-
-                enemyState = EnemyState.CHASE;
-
+                ChangeState(EnemyState.CHASE);
                 enemyAnim.StopAnimation();
             }
-
-        } // if we should chase
-
-        if (enemyState == EnemyState.CHASE)
-        {
-            ChasePlayer();
         }
 
-        if (enemyState == EnemyState.ATTACK)
-        {
-            AttackPlayer();
-        }
-
-
-        // Update the flipX value based on the movement direction
         if (navAgent.velocity.x < 0)
         {
             flipX = true;
@@ -107,116 +105,102 @@ public class ZombieMovement : MonoBehaviour
             flipX = false;
         }
 
-        // Flip the sprite based on flipX value
         FlipSpriteRenderer();
+    }
 
+    void ChangeState(EnemyState newState)
+    {
+        if (newState != enemyState)
+        {
+            stopwatch.Stop();
+            long elapsedMilliseconds = stopwatch.ElapsedMilliseconds;
 
+            // Update the corresponding UI text based on the current state
+            switch (enemyState)
+            {
+                case EnemyState.PATROL:
+                    if (patrolTimeText != null)
+                    {
+                        patrolTimeText.text = $"Patrol Time: {elapsedMilliseconds} ms";
+                    }
+                    break;
+                case EnemyState.CHASE:
+                    if (chaseTimeText != null)
+                    {
+                        chaseTimeText.text = $"Chase Time: {elapsedMilliseconds} ms";
+                    }
+                    break;
+                case EnemyState.ATTACK:
+                    if (attackTimeText != null)
+                    {
+                        attackTimeText.text = $"Attack Time: {elapsedMilliseconds} ms";
+                    }
+                    break;
+            }
 
-    } // update
+            // Change the state and reset the stopwatch
+            enemyState = newState;
+            stopwatch.Reset();
+            stopwatch.Start();
+        }
+    }
 
     void Patrol()
     {
-
         timer_Count += Time.deltaTime;
         navAgent.speed = move_Speed;
 
         if (timer_Count > patrol_Timer)
         {
-
             SetNewRandomDestination();
-
             timer_Count = 0f;
-
         }
 
         if (navAgent.remainingDistance <= 0.5f)
         {
-            // stop the nav agent from moving
             navAgent.velocity = Vector3.zero;
         }
 
-        if (navAgent.velocity.sqrMagnitude == 0)
-        {
-
-            enemyAnim.Walk(false);
-
-        }
-        else
-        {
-
-           enemyAnim.Walk(true);
-
-        }
-
+        enemyAnim.Walk(navAgent.velocity.sqrMagnitude != 0);
     }
 
     void SetNewRandomDestination()
     {
-
-        Vector3 newDestionation = RandomNavSphere(transform.position, patrol_Radius, -1);
-        navAgent.SetDestination(newDestionation);
-
-        if(move_Speed < 0)
-        {
-
-        }
+        Vector3 newDestination = RandomNavSphere(transform.position, patrol_Radius, -1);
+        navAgent.SetDestination(newDestination);
     }
 
     Vector3 RandomNavSphere(Vector3 originPos, float dist, int layerMask)
     {
-
         Vector3 randDir = Random.insideUnitSphere * dist;
         randDir += originPos;
 
-        NavMeshHit navHit;
-
-        NavMesh.SamplePosition(randDir, out navHit, dist, layerMask);
+        NavMesh.SamplePosition(randDir, out NavMeshHit navHit, dist, layerMask);
 
         return navHit.position;
     }
 
     void ChasePlayer()
     {
-
         navAgent.SetDestination(player_Target.position);
         navAgent.speed = run_Speed;
 
-        if (navAgent.velocity.sqrMagnitude == 0)
-        {
+        enemyAnim.Run(navAgent.velocity.sqrMagnitude != 0);
 
-            enemyAnim.Run(false);
-
-        }
-        else
-        {
-
-           enemyAnim.Run(true);
-
-        }
-
-        // we are in the range of the attack
         if (Vector3.Distance(transform.position, player_Target.position) <= attack_Distance)
         {
-
-            enemyState = EnemyState.ATTACK;
-
+            ChangeState(EnemyState.ATTACK);
         }
-        else if (Vector3.Distance(transform.position, player_Target.position)
-                  > chase_Distance)
+        else if (Vector3.Distance(transform.position, player_Target.position) > chase_Distance)
         {
-
             timer_Count = patrol_Timer;
-            enemyState = EnemyState.PATROL;
+            ChangeState(EnemyState.PATROL);
             enemyAnim.Run(false);
-
         }
-
-    } // chase player
+    }
 
     void AttackPlayer()
     {
-
-        // stop the velocity meaning the game object will stop moving
         navAgent.velocity = Vector3.zero;
         navAgent.isStopped = true;
 
@@ -227,25 +211,17 @@ public class ZombieMovement : MonoBehaviour
 
         if (attack_Timer > wait_Before_Attack_Time)
         {
-
-            //enemyAnim.NormalAttack_1();
-
-            //attack_Timer = 0f;
-
+            // Trigger attack animation (uncomment when animation is ready)
+            // enemyAnim.NormalAttack_1();
+            // attack_Timer = 0f;
         }
 
-        if (Vector3.Distance(transform.position, player_Target.position) >
-           attack_Distance + chase_Player_After_Attack_Distance)
+        if (Vector3.Distance(transform.position, player_Target.position) > attack_Distance + chase_Player_After_Attack_Distance)
         {
-
-            // enable the agent to move again
             navAgent.isStopped = false;
-
-            enemyState = EnemyState.CHASE;
-
+            ChangeState(EnemyState.CHASE);
         }
-
-    } // attack player
+    }
 
     void FlipSpriteRenderer()
     {
@@ -256,9 +232,4 @@ public class ZombieMovement : MonoBehaviour
             spriteRenderer.flipX = flipX;
         }
     }
-
-
-   
-
-
 }
